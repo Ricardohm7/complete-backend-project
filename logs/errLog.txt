@@ -1,7 +1,0 @@
-20240719	23:58:19	b9e56efc-b3a3-4532-baaf-62f1f8b47535	Error: Not allowed by CORS
-20240720	13:05:22	8b7a39e7-49d0-4d38-b4d8-a0f8595b16e6	SyntaxError: Expected property name or '}' in JSON at position 3
-20240720	13:05:42	8ce7aa14-c3c0-45fe-b97e-749c402e2e64	SyntaxError: Expected property name or '}' in JSON at position 3
-20240720	13:06:23	5e17e6b0-22fd-4caf-81c1-20057da4fc9b	SyntaxError: Expected property name or '}' in JSON at position 3
-20240721	17:07:41	89bcd1f1-726a-4925-b906-6aafc1b85a82	TypeError: Cannot read properties of undefined (reading 'username')
-20240721	17:16:04	5ab57b0a-6c10-42c4-9b06-aada531e234f	TypeError: Cannot read properties of undefined (reading 'username')
-20240721	17:34:34	3c107772-4245-4245-8d92-7e1b73d95482	ReferenceError: val is not defined
