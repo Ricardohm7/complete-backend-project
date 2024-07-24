@@ -2,12 +2,15 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const cors = require('cors')
+const YAML = require('yamljs');
+const swaggerUI = require('swagger-ui-express');
 const { logger } = require('./middleware/logEvents')
 const errorHandler = require('./middleware/errorHandler')
 const corsOptions = require('./config/corsOptions')
 const verifyJWT = require('./middleware/verifyJWT')
 const cookieParse = require('cookie-parser')
 const credentials = require('./middleware/credentials')
+const swaggerDocument = YAML.load('./api-docs/swagger.yaml');
 const PORT = process.env.PORT || 3000
 
 //custom middleware logger
@@ -35,6 +38,8 @@ app.use('/register', require('./routes/register'))
 app.use('/auth', require('./routes/auth'))
 app.use('/refresh', require('./routes/refresh'))
 app.use('/logout', require('./routes/logout'))
+//Swagger Page
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 
 app.use(verifyJWT)
 app.use('/employees', require('./routes/api/employees'))
@@ -55,4 +60,6 @@ app.all('*', (req, res) => {
 app.use(errorHandler)
 
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
